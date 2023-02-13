@@ -11,9 +11,13 @@ function onBtnSubmit(event){
   } = event.currentTarget;
 
 if(email.value === "" || password.value === ""){
-  alert("Всі поля мають бути заповненими!");
+  return alert("Всі поля мають бути заповненими!");
 }
-console.log(`Email: ${email.value}, Password: ${password.value}`);
+const object = {
+  email: email.value,
+  password: password.value,
+}
+console.log(object);
   event.currentTarget.reset();
 
  

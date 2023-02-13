@@ -7,11 +7,14 @@ const ingredients = [
   'Condiments',
 ];
 const ingredientsEl = document.querySelector('#ingredients');
+
+const markap = [];
 const createEl = ingredients.forEach(elem =>{
   const crateListEl = document.createElement("li");
   crateListEl.textContent = elem;
   crateListEl.classList.add(elem);
-  ingredientsEl.append(crateListEl);
+  markap.push(crateListEl);
 });
 
+ingredientsEl.append(...markap);
 // element.classList.add("class")
