@@ -10,8 +10,8 @@ const btnForDestroyEl = document.querySelector('button[data-destroy]');
 const boxEl = document.querySelector('#boxes');
 
 let a = 10;
-const markap = [];
-function createBoxes(amount){
+let markap = [];
+function createBoxes(){
   const number = +textElForCreate.value;
   // console.log(amount.currentTarget);
   // console.log("Клик по кнопке Create",number);
@@ -25,24 +25,16 @@ function createBoxes(amount){
     // console.log(createElement.style.width);
   markap.push(createElement)
   }
-  boxEl.append(...markap);
+  boxEl.append(...markap);  
 
-
-
-  const boxesChildEl = boxEl.children;
-  console.log(boxesChildEl);
-
-  function destroyBoxes(){
-    for (let i = 0; i <= boxesChildEl.length; i += 1) {
-
-      const element = boxesChildEl[i];
-      element.remove();
-    }
-    
-  };
-  btnForDestroyEl.addEventListener('click', destroyBoxes);
 };
 
-
+function destroyBoxes(){
+  boxEl.innerHTML = "";
+  markap =[];
+  a = 10;
+  textElForCreate.value = "";
+};
+btnForDestroyEl.addEventListener('click', destroyBoxes);
 
 btnForCreateEl.addEventListener('click', createBoxes);
